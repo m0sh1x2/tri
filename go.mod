@@ -2,6 +2,8 @@ module github.com/m0sh1x2/tri
 
 go 1.17
 
+replace github.com/m0sh1x2/tri/todo => ./todo
+
 require (
 	github.com/fsnotify/fsnotify v1.5.1 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect

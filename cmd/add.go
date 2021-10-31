@@ -18,6 +18,7 @@ package cmd
 import (
 	"fmt"
 
+	"github.com/m0sh1x2/tri/todo"
 	"github.com/spf13/cobra"
 )
 
@@ -30,8 +31,13 @@ var addCmd = &cobra.Command{
 }
 
 func addRun(cmd *cobra.Command, args []string) {
+	items := []todo.Item{}
 	for _, x := range args {
-		fmt.Println(x)
+		items = append(items, todo.Item{Text: x})
+	}
+	err := todo.SaveItems("/home/m0sh1x2/.tridos.json", items)
+	if err != nil {
+		fmt.Errorf("%v", err)
 	}
 }
 
